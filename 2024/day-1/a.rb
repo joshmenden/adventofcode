@@ -9,11 +9,17 @@ class Day < AOCSolution
     @data = @data.split("\n").map { |line| line.split(/\s+/).map(&:to_i) }
   end
 
+  # 0.00069s
   def pt1
     @data.transpose.map(&:sort).transpose.map { |a, b| (a - b).abs }.sum
   end
 
-  def pt2; end
+  # 0.00013s
+  def pt2
+    left, right = @data.transpose
+    tally = right.tally
+    left.reduce(0) { |acc, num| acc + ((tally[num] || 0) * num) }
+  end
 end
 
 filename = 'input.txt'
