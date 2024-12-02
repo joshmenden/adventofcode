@@ -8,6 +8,9 @@ loader.push_dir("#{__dir__}/lib")
 loader.setup
 
 class Solver
+  include Numericable
+
+  attr_accessor :data
   def initialize(test: false)
     @test = test
     @data = if @test
@@ -16,6 +19,7 @@ class Solver
       File.read("input.txt")
     end
     parse_data
+  rescue Errno::ENOENT # Can't find file
   end
 
   def solve!
