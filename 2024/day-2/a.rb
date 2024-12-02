@@ -15,6 +15,12 @@ class Day < AOCSolution
   end
 
   def pt2
+    @data.count do |report|
+      report.combination(report.length - 1).any? do |combo|
+        (combo == combo.sort || combo == combo.sort.reverse) &&
+          combo.each_cons(2).all? { |a, b| (a - b).abs >= 1 && (a - b).abs <= 3 }
+      end
+    end
   end
 end
 
