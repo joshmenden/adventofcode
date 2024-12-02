@@ -9,6 +9,7 @@ loader.setup
 
 class Solver
   include Numericable
+  include Arrayable
 
   attr_accessor :data
   def initialize(test: false)
