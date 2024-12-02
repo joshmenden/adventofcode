@@ -1,15 +1,14 @@
 require "byebug"
 require "clipboard"
 require "active_support/all"
-require "active_model"
 
 require "zeitwerk"
 loader = Zeitwerk::Loader.new
-loader.push_dir("./lib")
+loader.push_dir("#{__dir__}/lib")
 loader.setup
 
 class Solver
-  def initialize(test: true)
+  def initialize(test: false)
     @test = test
     @data = if @test
       File.read("sample.txt")
