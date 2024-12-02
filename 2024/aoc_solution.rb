@@ -1,3 +1,6 @@
+require "byebug"
+require "active_support/all"
+
 class AOCSolution
   def initialize(filename, params: {})
     @data = File.read(filename)

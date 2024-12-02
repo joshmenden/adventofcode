@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'byebug'
-require 'active_support/all'
-require_relative '../aoc_solution'
+require_relative "../aoc_solution"
 
 class Day < AOCSolution
   def parse_data
@@ -22,5 +20,5 @@ class Day < AOCSolution
   end
 end
 
-filename = 'input.txt'
+filename = "input.txt"
 Day.new(filename).solve!
